@@ -117,7 +117,6 @@ Start Command: uvicorn main:app --host 0.0.0.0 --port 10000
 
 Remember to set the OPENAI_API_KEY as an environment variable in your deployment service's settings.
 
-```
 📂 Project Structure
 kashmiri-ai-backend/
 ├── api/
@@ -132,4 +131,3 @@ kashmiri-ai-backend/
 ├── .gitignore
 ├── main.py
 └── requirements.txt
-```
