@@ -6,3 +6,4 @@ openai-whisper
 gTTS
 python-multipart
 pydub
+PyAudio

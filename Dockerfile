@@ -5,8 +5,8 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Install system dependencies
-# This is crucial for pydub to work inside the container
-RUN apt-get update && apt-get install -y ffmpeg
+# Added portaudio19-dev for the PyAudio package
+RUN apt-get update && apt-get install -y ffmpeg portaudio19-dev
 
 # Copy the requirements file into the container
 COPY requirements.txt .
@@ -21,5 +21,4 @@ COPY . .
 EXPOSE 8000
 
 # Define the command to run your app using uvicorn
-# This is what runs when the container starts
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
