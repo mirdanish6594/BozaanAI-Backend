@@ -2,6 +2,21 @@
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
 
+---
+title: Bozaan.AI
+emoji: 🗣️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+---
+
+# Bozaan.AI - Kashmiri Voice Assistant (Backend)
+
+This is the backend server for Bozaan.AI, a voice-first AI assistant for the Kashmiri language.
+
+This Space is running the FastAPI backend inside a Docker container. It handles the full pipeline: Speech-to-Text (Whisper), AI Reply (OpenAI), and Text-to-Speech (gTTS).
+
 This repository contains the backend server for **Bozaan.AI**, a voice-first AI assistant designed for the Kashmiri language. The API is built with FastAPI and handles the entire end-to-end pipeline from receiving user audio to returning an AI-generated audio response.
 
 This project was created by **Danish Mir** as a demonstration of building a full-stack, AI-powered regional language application.
