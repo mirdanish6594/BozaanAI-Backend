@@ -1,26 +1,24 @@
-# Use a stable, recent Python version like 3.11, which has good package support
+# Use a specific, stable Python version
 FROM python:3.11.9-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install system dependencies in a single, clean layer.
-# This is a best practice to ensure apt cache is updated right before install.
+# Install system dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ffmpeg portaudio19-dev && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy the requirements file into the container
+# Copy the requirements file and install Python packages
 COPY requirements.txt .
-
-# Install Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your application's code into the container
+# Copy the rest of your application's code
 COPY . .
 
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Define the command to run your app using uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use ENTRYPOINT to make the container run like an executable.
+# This is more robust than CMD and less likely to be overridden.
+ENTRYPOINT ["/usr/local/bin/python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
